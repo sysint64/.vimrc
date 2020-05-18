@@ -38,8 +38,14 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+if has('unix')
+    let g:python3_host_prog = '/usr/bin/python'
+endif
+
+if has('macunix')
+    let g:python2_host_prog = '/usr/local/bin/python'
+    let g:python3_host_prog = '/usr/local/bin/python3'
+endif
 
 colorscheme gruvbox
 
